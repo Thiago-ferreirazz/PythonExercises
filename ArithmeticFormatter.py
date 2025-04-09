@@ -19,7 +19,10 @@ def error_tretment(num1,operator,num2):
             return "Error: Numbers cannot be more than four digits."
     return ""
 def calculate(num1,operator,num2):
-    pass
+    if operator == "+":
+        return str(int(num1) + int(num2))
+    else: 
+        return str(int(num1) - int(num2))
 
 def arithmetic_arranger(problems, show_answers=False):
     if len(problems) > 5:
@@ -42,9 +45,13 @@ def arithmetic_arranger(problems, show_answers=False):
         lines[0] += " " * spaces1 + num1 + "    "
         lines[1] += operator + " " * spaces2 + num2 + "    "
         lines[2] += "-" * width + "    "
+        if show_answers:
+            answer = calculate(num1, operator, num2)
+            spaces3 = width - len(answer)
+            lines[3] += " " * spaces3 + answer + "    "
         
-    final_string = f"{lines[0].rstrip()}\n{lines[1].rstrip()}\n{lines[2].rstrip()}"
+    final_string = f"{lines[0].rstrip()}\n{lines[1].rstrip()}\n{lines[2].rstrip()}\n{lines[3].rstrip()}"
     return final_string
 
 # Teste
-print(arithmetic_arranger(["3 8       0 1 - 2", "123+49"]))
+print(arithmetic_arranger(["3 8       0 1 + 9999", "123+49"]))
