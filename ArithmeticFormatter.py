@@ -25,7 +25,7 @@ def calculate(num1,operator,num2):
     else: 
         return str(int(num1) - int(num2))
 
-def arithmetic_arranger(problems, show_answers=False):
+def arithmetic_arranger(problems, show_answers=True):
     if len(problems) > 5:
         return 'Error: Too many problems.'
     
@@ -47,7 +47,7 @@ def arithmetic_arranger(problems, show_answers=False):
         lines[0] += " " * spaces1 + num1 + "    "
         lines[1] += operator + " " * spaces2 + num2 + "    "
         lines[2] += "-" * width + "    "
-        
+
         if show_answers:
             answer = calculate(num1, operator, num2)
             spaces3 = width - len(answer)
@@ -57,4 +57,4 @@ def arithmetic_arranger(problems, show_answers=False):
     return final_string
 
 # Teste
-print(arithmetic_arranger(["3 8       0 1 + 99", "123+49"]))
+print(arithmetic_arranger(["3 8       0 1 + 99", "123+49", "9999 - 8 8 8 8", "1 + 1", "233 + 679"]))
